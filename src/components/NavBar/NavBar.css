@@ -1,0 +1,47 @@
+.contentNavBar{
+    display: flex;
+    justify-content: center;
+    
+    
+  }
+
+
+
+.NavBar{
+    display: flex;
+    margin: auto;
+    
+    
+    
+    
+    
+}
+
+ul{
+    display: flex;
+    width: 70%;
+    justify-content: space-evenly;
+    gap: 2em;
+    margin: auto;
+    
+}
+
+ul li {
+    list-style: none;
+    
+    
+}
+
+li a{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    
+}
+
+a:hover{   
+    color: white;
+    
+       
+    
+}

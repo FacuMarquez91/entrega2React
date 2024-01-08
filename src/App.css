@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+ 
+  
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  
+  
+}
+
+/* ESTILO CardProducts*/
+
+.content{
+  margin-top: 490px;
+  padding-bottom: 20px;
+  background-color: rgba(222, 184, 135, 0.471);
+   position: relative;
+  
+
+}
+
+.divSpan{
+  padding-top: 110px;
+}
+
+.spanCards{
+  font-size: 40px;
+  font-weight: bold;
+
+  
+}
+
+.cardProducts{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 80px;
+}
