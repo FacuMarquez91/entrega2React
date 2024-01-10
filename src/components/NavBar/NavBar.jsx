@@ -2,7 +2,7 @@ import React from 'react';
 import "./NavBar.css";
 import CardWidget from '../CardWidget/CardWidget';
 
-import {link} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
 const NavBar = () => {
@@ -10,10 +10,10 @@ const NavBar = () => {
         <div >
             <nav className='NavBar' >
                 <ul  >
-                    <link to="/">Inicio</link>
-                    <link to="/ManPage">Hombre</link>
-                    <link to="/WomenPage">Mujer</link>
-                    <link to="/ContactPage">Contacto</link>
+                   <li><Link to="/">Inicio</Link></li> 
+                    <li><Link to="/category/men's clothing">Hombre</Link></li>
+                    <li><Link to="/category/women's clothing">Mujer</Link></li>
+                    <li><Link to="/ContactPage">Contacto</Link></li>
                     <li><CardWidget/></li>
                 </ul>
             </nav>

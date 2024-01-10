@@ -5,29 +5,32 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-const CardProducts = (props) => {
+const CardProducts = ( { char }) => {
+  const {image, title, description, category} = char;
   return (
-    <Card sx={{ maxWidth: 200 }} style={{ backgroundColor: "orange"}}>
-      <CardActionArea>
+    <Card sx={{ maxWidth: 200, height: '100%' }} style={{ backgroundColor: "rgba(30, 148, 163, 0.685)", display: 'flex', flexDirection: 'column' }}>
+      <CardActionArea style={{ flexGrow: 1 }}>
         <CardMedia
           component="img"
-          image={props.img}
+          height="140"
+          image ={image}
+          style={{ maxHeight: 100, objectFit: 'cover' }}
           alt="Calza deportiva mujer"
         />
         <CardContent >
-          <Typography gutterBottom variant="h5" component="div">
-            {props.name}
+          <Typography gutterBottom variant="h6" component="div">
+            {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {props.description}
+          <Typography variant="body2" color="text.secondary"style={{ overflow: 'hidden', textOverflow: 'ellipsis', maxHeight: '2em' }}>
+            {description}
           </Typography>
-          <Typography variant="h6" color="black">
-            {props.precio}
+          <Typography variant="body1" color="black" >
+            {category}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions style={{ display: 'flex', justifyContent: 'center' }}>
-        <Button size="small" color="primary" style={{ border: '1px solid #000', backgroundColor: "white"}} >
+      <CardActions style={{  justifyContent: 'center' }}>
+        <Button size="small" color="primary" style={{ border: '1px solid #000', backgroundColor: "white" }} >
           COMPRAR
         </Button>
       </CardActions>

@@ -6,7 +6,7 @@
     width: 100%;
     height: 100%;
     background-size:contain;
-    background-image: linear-gradient(180deg, #00000033, 0%, #00000033 100% ), url(../../assets/imgfondo3.jpg);
+    background-image: linear-gradient(180deg, #00000033, 0%, #00000033 100% ), url(../../assets/imgTienda.jpg);
     clip-path: polygon(0% 0%, 100% 0, 100% 80%, 50% 95%, 0 80%);
     z-index: -1;
     
