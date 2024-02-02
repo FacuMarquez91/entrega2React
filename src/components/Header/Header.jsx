@@ -7,15 +7,25 @@ const tituloPag = "CdelU Store";
 
 const Header = () => {
   return (
+    <div>
+
     <div className="Header">
-      
-      
-        <Link to="/">
-        <h1>{tituloPag.toUpperCase()}</h1>
-        </Link>
-      
-    </div>
-  );
+
+    </div>  
+
+    <div className="header_title">
+
+      <Link to="/" className="header_link" >
+
+      <h1 >{tituloPag.toUpperCase()} </h1>
+
+      </Link>
+
+    </div>            
+
+  </div>
+
+);
 };
 
 export default Header;

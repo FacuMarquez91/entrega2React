@@ -1,41 +1,10 @@
-import { useEffect, useState} from 'react'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
-import CardProducts from '../../components/CardProducts/CardProducts'
+// import React from 'react';
+// import ItemListContainer from '../../components/itemListContainer/itemListContainer';
 
 
-const CategoryPage = () => {
-  const [chars, setChars] = useState([]);
-  let {categoryId} = useParams();
-    
-
-console.log(chars)
-console.log(categoryId)
-
-let filterCharacters = chars.filter((char) =>{
-    return char.category === categoryId;
-
-});
-
-  useEffect(() => {
-    axios(`https://fakestoreapi.com/products`).then((res) => setChars(res.data)
-    );
- }, []);
-
-  return (
-    <div className='CardProducts'>
-        {filterCharacters.map((char)=> {
-            return(
-                <div style={{margin: 10}} key={char.id}>
-                    <CardProducts char={char}/>
-                </div>
-            )
-        } )}
-    </div>
- 
-   
-  )
+// const CategoryPage = () => {
+//   return <ItemListContainer isCategoryPage={true} classname="CardProducts"/>;
+// };
 
 
-  }
-export default CategoryPage
+// export default CategoryPage;

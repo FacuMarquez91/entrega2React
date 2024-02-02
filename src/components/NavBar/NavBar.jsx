@@ -1,24 +1,30 @@
-import React from 'react';
-import "./NavBar.css";
+import React, { useContext } from 'react';
+import "./NavBar.css";  // Asegúrate de ajustar la ruta según la ubicación de tu archivo CSS
+
 import CardWidget from '../CardWidget/CardWidget';
+import { AppBar, Container, Toolbar } from '@mui/material';
+import MenuDropdown from '../Menudropdown/MenuDropdown';
+import { Link } from "react-router-dom";
 
-import {Link} from "react-router-dom";
-
+import { ItemListContainer } from '../itemListContainer/itemListContainer';
 
 const NavBar = () => {
+    const [items] = useContext(ItemListContainer);
     return (
-        <div >
-            <nav className='NavBar' >
-                <ul  >
-                   <li><Link to="/">Inicio</Link></li> 
-                    <li><Link to="/category/men's clothing">Hombre</Link></li>
-                    <li><Link to="/category/women's clothing">Mujer</Link></li>
-                    <li><Link to="/ContactPage">Contacto</Link></li>
-                    <li><CardWidget/></li>
-                </ul>
-            </nav>
-        </div>
-  )
+        <AppBar position='static' className='contentNavBar'>
+            <Container max maxWidth="x1">
+                <Toolbar disableGutters >
+                    <Link to={"/HomePage"} >Home</Link>
+                    <MenuDropdown />
+                    <Link to={"/Contact"} >Contact</Link>
+                    <Link to={"/Shop"} >
+                        <CardWidget />
+                        <span>{items.length}</span>
+                    </Link>
+                </Toolbar>
+            </Container>
+        </AppBar>
+    )
 }
 
-export default NavBar
+export default NavBar;

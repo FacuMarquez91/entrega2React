@@ -5,27 +5,29 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-const CardProducts = ( { char }) => {
-  const {image, title, description, category} = char;
+const CardProducts = ( { productsData }) => {
   return (
     <Card sx={{ maxWidth: 200, height: '100%' }} style={{ backgroundColor: "rgba(30, 148, 163, 0.685)", display: 'flex', flexDirection: 'column' }}>
       <CardActionArea style={{ flexGrow: 1 }}>
         <CardMedia
           component="img"
           height="140"
-          image ={image}
+          image ={productsData.img}
           style={{ maxHeight: 100, objectFit: 'cover' }}
           alt="Calza deportiva mujer"
         />
         <CardContent >
           <Typography gutterBottom variant="h6" component="div">
-            {title}
+            {productsData.name}
           </Typography>
           <Typography variant="body2" color="text.secondary"style={{ overflow: 'hidden', textOverflow: 'ellipsis', maxHeight: '2em' }}>
-            {description}
+            {productsData.description}
           </Typography>
           <Typography variant="body1" color="black" >
-            {category}
+            {productsData.price}
+          </Typography>
+          <Typography variant="body1" color="black" >
+            {productsData.category}
           </Typography>
         </CardContent>
       </CardActionArea>

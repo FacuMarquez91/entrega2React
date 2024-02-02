@@ -1,34 +1,42 @@
-import React, { useEffect, useState} from "react"
-import axios from "axios"
-import "./ListProducts.css"
+import React, { useState, useEffect } from "react";
 import CardProducts from "../CardProducts/CardProducts";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
+import { collection, query, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/firebaseConfig";
 
+const CardProduct = () => {
+  const [productsData, setProductsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-const ListProducts = () => {
- const [chars, setChars] = useState ([]);
+  useEffect(() => {
+    const getProducts = async () => {
+      const q = query(collection(db, "products"));
+      const docs = [];
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        docs.push({ ...doc.data(), id: doc.id });
+      });
+      setProductsData(docs);
+      setIsLoading(false); // Agregamos esto para indicar que la carga ha finalizado
+    };
+    getProducts();
+  }, []);
 
- useEffect(() => {
-    axios("https://fakestoreapi.com/products").then((res) => setChars(res.data)
-    );
- }, []);
- 
- 
-   return (
-    <div className="CardProducts">
-      {chars.map((char) =>{
-         return(
-            <div style={{margin: 10}} key={char.id}>
-               <Link to={`/Detail/${char.id}`} style={{textDecoration: "none"}}>
-               <CardProducts char={char}/>
-               </Link>
-            </div>
-            
-         );
-      })}
-   </div>
-   );
+  return (
+    <>
+      <div>
+        {isLoading ? (
+          <p>Cargando productos...</p>
+        ) : (
+          productsData.map((data) => (
+            <Link key={data.id} to={`/Detail/${data.id}`}>
+              <CardProducts productsData={data} />
+            </Link>
+          ))
+        )}
+      </div>
+    </>
+  );
 };
 
-
-export default ListProducts ;
+export default CardProduct;

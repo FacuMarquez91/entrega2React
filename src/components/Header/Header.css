@@ -13,9 +13,13 @@
     
 }
 
-.Header h1{
-    color: rgba(238, 255, 6, 0.685);
-    font-size: 70px;
+.header_title{
+    font-size: 40px;
     font-family:fantasy;
     padding-top: 50px;
+}
+
+.header_link{
+    text-decoration: none;
+    color: #a6e245;
 }
